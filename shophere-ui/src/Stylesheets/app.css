@@ -1,0 +1,41 @@
+.shophere-header {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+	overflow-x: hidden;
+	
+}
+.body{
+	min-height:550px !important;
+	margin-top: 1%;
+}
+
+.logo {
+	width: 12%;
+}
+.custom-navbar{
+	color:white;
+	margin-right: 25%;	
+}
+
+.product-card{
+	maring-top:1%;
+}
+.product-image{
+	width: 50%;
+	margin:auto;
+}
+
+.product-card-body{
+	margin-top:2%;
+    padding-right: 0px !important;
+}
+
+.product-dashboard{
+	maring-top:1%;
+}
+
+.row-bottom{
+	bottom:0;	
+}
