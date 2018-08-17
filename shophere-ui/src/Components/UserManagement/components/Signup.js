@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { signup } from "../actions/UserManagementActionCreator";
+import { register } from "../actions/UserManagementActionCreator";
 
 class Signup extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ class Signup extends Component {
       this.state.confirmPasswordError === "" &&
       this.state.mobileNoError === ""
     ) {
-      this.props.signup(
+      this.props.register(
         this.state.email,
         this.state.password,
         this.state.mobileNo
@@ -74,11 +74,11 @@ class Signup extends Component {
     let error;
     let success;
     let style = {};
-    if (this.props.user.user.errorMessage !== "") {
-      error = this.props.user.user.errorMessage;
+    if (this.props.signupUser.signupUser.errorMessage !== "") {
+      error = this.props.signupUser.signupUser.errorMessage;
     }
-    if (this.props.user.user.successMessage !== "") {
-      error = this.props.user.user.successMessage;
+    if (this.props.signupUser.signupUser.successMessage !== "") {
+      error = this.props.signupUser.signupUser.successMessage;
       style.display = "none";
     }
     return (
@@ -166,18 +166,18 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-  user: PropTypes.object.isRequired,
-  signup: PropTypes.func.isRequired
+  signupUser: PropTypes.object.isRequired,
+  register: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    signupUser: state.signupUser
   };
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ signup }, dispatch);
+  return bindActionCreators({ register }, dispatch);
 };
 
 export default connect(

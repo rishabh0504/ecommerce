@@ -1,16 +1,9 @@
 import { SIGN_UP_ERROR,SIGN_UP_SUCCESS } from "../actions/UserManagementActions";
 
 const initialState = {
-  user: {
-    email: "",
-    mobile: "",
-    password: "",
-    username: "",
-    isUserLoggedIn: false,
-    token: "",
+  signupUser: {
     errorMessage: "",
     successMessage: ""
-
   }
 };
 
@@ -19,13 +12,13 @@ export default function(state = initialState, action) {
     case SIGN_UP_ERROR:
       return {
         ...state,
-        user :{...state.user,errorMessage:action.payload}
+        signupUser :{...state.signupUser,errorMessage:action.payload}
       };
       case SIGN_UP_SUCCESS:
       return {
         ...state,
         
-         user :{...state.user,successMessage:action.payload}
+         signupUser :{...state.signupUser,successMessage:action.payload}
 
       };
   }

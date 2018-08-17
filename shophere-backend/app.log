@@ -541,3 +541,7 @@
 [2018-08-18T01:13:04.479] [INFO] default - Connected to database.
 [2018-08-18T01:13:04.563] [INFO] default - Server started
 [2018-08-18T01:13:05.429] [ERROR] default - null
+[2018-08-18T01:32:44.396] [INFO] default - Connecting to database.
+[2018-08-18T01:32:44.431] [INFO] default - Connected to database.
+[2018-08-18T01:32:44.531] [INFO] default - Server started
+[2018-08-18T01:32:45.364] [ERROR] default - null

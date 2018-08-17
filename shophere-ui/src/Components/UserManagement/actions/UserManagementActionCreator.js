@@ -7,7 +7,7 @@ import {
 
 import axios from 'axios';
 
- export const signup = (email,password,mobile)=>dispatch =>{
+ export const register = (email,password,mobile)=>dispatch =>{
  	axios.post('http://localhost:3001/user/signup',{email,password,mobile,username:email})
 	.then(res=>{
 		if(res.status===409){
