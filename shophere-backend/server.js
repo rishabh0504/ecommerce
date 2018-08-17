@@ -6,7 +6,7 @@ const app = express();
 /* Body parser configuration*/
 
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 /* Body parser configuration*/
@@ -25,13 +25,13 @@ logger.level = 'debug';
 /* Logger */
 
 /* routes */
-const appRoute = require('./server/routes/app.route'); 
-const userRoute = require('./server/routes/user.route'); 
 
+const userRoute = require('./server/routes/user.route'); 
+const addProductRoute = require('./server/routes/product.route'); 
 /* routes */
 
 
-var Product = require('./server/models/product.model');
+/*var Product = require('./server/models/product.model');*/
 
 
 
@@ -50,6 +50,8 @@ var Product = require('./server/models/product.model');
 });*/
 
 app.use('/user/',userRoute);
+app.use('/add/products',addProductRoute);
+
 //app.use('/product/',appRoute);
 /*app.use('/product/add',userRoute);*/
 

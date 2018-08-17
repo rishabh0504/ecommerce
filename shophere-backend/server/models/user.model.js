@@ -6,8 +6,9 @@ const bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 
 const User = Schema({
-  username    :  { type: String, required: true, index: { unique: true }},
-  password: { type: String, required: true }
+  username:  { type: String, required: true, index: { unique: true }},
+  password: { type: String, required: true },
+  products: { type: Schema.Types.ObjectId, ref: 'Product'}
 });
 
 User.pre('save',function(next){
