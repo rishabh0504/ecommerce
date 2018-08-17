@@ -352,3 +352,51 @@
   name: 'MongoNetworkError',
   message: 'failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]',
   errorLabels: [ 'TransientTransactionError' ] }
+[2018-08-17T19:31:52.271] [INFO] default - Connecting to database.
+[2018-08-17T19:31:52.301] [INFO] default - Connected to database.
+[2018-08-17T19:31:52.394] [INFO] default - Server started
+[2018-08-17T19:31:54.415] [ERROR] default - { MongoNetworkError: failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]
+    at Pool.<anonymous> (C:\Users\gs-1377\Desktop\Javascript\es6-based-projects\shophere\shophere-backend\node_modules\mongodb-core\lib\topologies\server.js:562:11)
+    at emitOne (events.js:96:13)
+    at Pool.emit (events.js:188:7)
+    at Connection.<anonymous> (C:\Users\gs-1377\Desktop\Javascript\es6-based-projects\shophere\shophere-backend\node_modules\mongodb-core\lib\connection\pool.js:316:12)
+    at Connection.g (events.js:292:16)
+    at emitTwo (events.js:106:13)
+    at Connection.emit (events.js:191:7)
+    at Socket.<anonymous> (C:\Users\gs-1377\Desktop\Javascript\es6-based-projects\shophere\shophere-backend\node_modules\mongodb-core\lib\connection\connection.js:245:50)
+    at Socket.g (events.js:292:16)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at emitErrorNT (net.js:1277:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+  name: 'MongoNetworkError',
+  message: 'failed to connect to server [localhost:27017] on first connect [MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017]',
+  errorLabels: [ 'TransientTransactionError' ] }
+[2018-08-17T19:45:35.618] [INFO] default - Connecting to database.
+[2018-08-17T19:45:35.648] [INFO] default - Connected to database.
+[2018-08-17T19:45:35.770] [INFO] default - Server started
+[2018-08-17T19:45:36.925] [ERROR] default - null
+[2018-08-17T19:45:40.327] [INFO] default - Connecting to database.
+[2018-08-17T19:45:40.347] [INFO] default - Connected to database.
+[2018-08-17T19:45:40.399] [INFO] default - Server started
+[2018-08-17T19:45:41.317] [ERROR] default - null
+[2018-08-17T19:46:49.152] [INFO] default - Connecting to database.
+[2018-08-17T19:46:49.180] [INFO] default - Connected to database.
+[2018-08-17T19:46:49.247] [INFO] default - Server started
+[2018-08-17T19:46:50.460] [ERROR] default - null
+[2018-08-17T19:49:49.676] [INFO] default - Connecting to database.
+[2018-08-17T19:49:49.704] [INFO] default - Connected to database.
+[2018-08-17T19:49:49.811] [INFO] default - Server started
+[2018-08-17T19:49:50.781] [ERROR] default - null
+[2018-08-17T20:36:31.980] [INFO] default - Connecting to database.
+[2018-08-17T20:36:32.015] [INFO] default - Connected to database.
+[2018-08-17T20:36:32.322] [INFO] default - Server started
+[2018-08-17T20:36:35.174] [INFO] default - Connecting to database.
+[2018-08-17T20:36:35.199] [INFO] default - Connected to database.
+[2018-08-17T20:36:35.271] [INFO] default - Server started
+[2018-08-17T20:36:36.583] [ERROR] default - null
+[2018-08-17T21:35:32.304] [INFO] default - Connecting to database.
+[2018-08-17T21:35:32.339] [INFO] default - Connected to database.
+[2018-08-17T21:35:32.432] [INFO] default - Server started
+[2018-08-17T21:35:39.774] [ERROR] default - null

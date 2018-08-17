@@ -3,3 +3,17 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+
+
+.form-bg{
+    background-image: url("./Images/form-bg.jpg");
+    background-size: cover;
+    height:100%;
+}
+.media-signup,.media-signin{
+background-color: darkseagreen;}
+
+.form-color{
+	color:white;
+}
