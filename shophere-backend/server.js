@@ -1,6 +1,7 @@
 /* express server configuration*/
 
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 /* Body parser configuration*/
@@ -8,6 +9,7 @@ const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
 
 /* Body parser configuration*/
 

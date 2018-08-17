@@ -7,14 +7,20 @@ module.exports.signup = (req, res) => {
     let user = new User();
     user.username = req.body.username;
     user.password = req.body.password;
-
+    user.mobile = req.body.mobile;
+    user.email = req.body.email;
+    User.find()
+    .then(res=>{console.log(res)})
+    .catch(err=>console.log(err))
     user.save((err, data) => {
         if (err) {
-            res.json({
-                'message': 'User name already exist.'
-            });
+            if(err.code===11000){
+                res.json({status : 409 ,message : "User already exist"});
+            }else{
+                res.json({status : 500 ,message : "Please try after some time."});    
+            }
         } else {
-            res.json({
+            res.json({status:200,
                 'message': 'User registered successfully. Please login again.'
             });
         }
@@ -39,8 +45,9 @@ module.exports.login = (req, res) => {
                         'message': 'Password not matched.'
                     });
                 } else {
-                	var token=jwt.sign(user.password,config.secret_token);
-                    res.json({user : {username:user.username},token:token});
+                	let token=jwt.sign(user.password,config.secret_token);
+                     user.password="";
+                    res.json({user : user,token:token});
                 }
             });
         }
