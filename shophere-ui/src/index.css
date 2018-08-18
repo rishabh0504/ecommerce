@@ -22,3 +22,7 @@ body {
 .div-text-center{
 	text-align: center;
 }
+
+.media-form-body{
+    margin: auto;
+}

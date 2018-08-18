@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import {
   register,
   resetSignupState
-} from "../actions/UserManagementActionCreator";
+} from "../actions/SignupActionCreator";
 
 class Signup extends Component {
   constructor(props) {
@@ -97,7 +97,7 @@ class Signup extends Component {
       <div className="row navbar-default form-bg">
         <div className="col-sm-4" />
         <div className="col-sm-4 media border p-3 media-signup">
-          <div className="media-body">
+          <div className="media-body media-form-body">
             <h4 className="text-center form-color">Sign Up</h4>
             <h5 className="form-color text-center">
               <strong>{error}</strong>

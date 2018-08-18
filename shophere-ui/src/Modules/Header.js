@@ -12,8 +12,8 @@ export default class Header extends Component {
         </a>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="custom-navbar" to={"/login"}>
-              Login
+            <Link className="custom-navbar" to={"/signin"}>
+              Signin
             </Link>
           </li>
         </ul>
