@@ -12,7 +12,9 @@ body {
     height:100%;
 }
 .media-signup,.media-signin{
-background-color: darkseagreen;}
+	    background-color: darkcyan;
+    opacity: 0.85;
+}
 
 .form-color{
 	color:white;

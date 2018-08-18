@@ -15,13 +15,13 @@ module.exports.signup = (req, res) => {
     user.save((err, data) => {
         if (err) {
             if(err.code===11000){
-                res.json({status : 409 ,message : "User already exist"});
+                res.json({status : 409 ,message : "User already exist. Please login."});
             }else{
                 res.json({status : 500 ,message : "Please try after some time."});    
             }
         } else {
             res.json({status:200,
-                'message': 'User registered successfully. Please login again.'
+                'message': 'User registered successfully. Please login.'
             });
         }
     });
