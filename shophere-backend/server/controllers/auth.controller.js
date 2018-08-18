@@ -9,9 +9,6 @@ module.exports.signup = (req, res) => {
     user.password = req.body.password;
     user.mobile = req.body.mobile;
     user.email = req.body.email;
-    User.find()
-    .then(res=>{console.log(res)})
-    .catch(err=>console.log(err))
     user.save((err, data) => {
         if (err) {
             if(err.code===11000){

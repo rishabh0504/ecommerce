@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { register ,resetSignupState} from "../actions/UserManagementActionCreator";
+import {
+  register,
+  resetSignupState
+} from "../actions/UserManagementActionCreator";
 
 class Signup extends Component {
   constructor(props) {
@@ -70,9 +73,12 @@ class Signup extends Component {
     }
   };
 
-  componentDidMount(){
-    if(this.props.signupUser.signupUser.successMessage!=="" && this.props.signupUser.signupUser.successMessage!==""){
-       this.props.resetSignupState();
+  componentDidMount() {
+    if (
+      this.props.signupUser.signupUser.successMessage !== "" &&
+      this.props.signupUser.signupUser.successMessage !== ""
+    ) {
+      this.props.resetSignupState();
     }
   }
 
@@ -93,10 +99,14 @@ class Signup extends Component {
         <div className="col-sm-4 media border p-3 media-signup">
           <div className="media-body">
             <h4 className="text-center form-color">Sign Up</h4>
-            <h5 className="form-color text-center"><strong>{error}</strong></h5>
-            <h5 className="form-color text-center"><strong>{success}</strong></h5>
-            <form action="" style={style}>
-              <div className="form-group">
+            <h5 className="form-color text-center">
+              <strong>{error}</strong>
+            </h5>
+            <h5 className="form-color text-center">
+              <strong>{success}</strong>
+            </h5>
+            <form action="">
+              <div className="form-group" style={style}>
                 <label className="form-color">
                   <strong>Email: </strong>
                 </label>
@@ -105,12 +115,12 @@ class Signup extends Component {
                   name="email"
                   value={this.state.email}
                   className="form-control"
-                  onChange={this.inputHandler} 
-                  placeholder='Type email...'
+                  onChange={this.inputHandler}
+                  placeholder="Type email..."
                 />
                 <p className="text-danger">{this.state.emailError}</p>
               </div>
-              <div className="form-group">
+              <div className="form-group" style={style}>
                 <label className="form-color">
                   <strong>Mobile no:</strong>
                 </label>
@@ -120,11 +130,11 @@ class Signup extends Component {
                   value={this.state.mobileNo}
                   className="form-control"
                   onChange={this.inputHandler}
-                  placeholder='Type Mobile no...'
+                  placeholder="Type Mobile no..."
                 />
                 <p className="text-danger">{this.state.mobileNoError}</p>
               </div>
-              <div className="form-group">
+              <div className="form-group" style={style}>
                 <label className="form-color">
                   <strong>Password:</strong>
                 </label>
@@ -134,11 +144,11 @@ class Signup extends Component {
                   value={this.state.password}
                   className="form-control"
                   onChange={this.inputHandler}
-                  placeholder='Type Password...'
+                  placeholder="Type Password..."
                 />
                 <p className="text-danger">{this.state.passwordError}</p>
               </div>
-              <div className="form-group">
+              <div className="form-group" style={style}>
                 <label className="form-color">
                   <strong>Confirm Password:</strong>
                 </label>
@@ -148,14 +158,16 @@ class Signup extends Component {
                   value={this.state.confirmPassword}
                   className="form-control"
                   onChange={this.inputHandler}
-                  placeholder='Confirm Passwrod...'
+                  placeholder="Confirm Passwrod..."
                 />
                 <p className="text-danger">{this.state.confirmPasswordError}</p>
               </div>
-              <div className="form-group">
-                <label className="form-color">
-                  <strong>Already have account. Click <Link to={"/"}> here </Link> to 
-                  login.</strong>
+              <div className="form-group div-text-center">
+                <label className="form-color ">
+                  <strong>
+                    Already have account. Click <Link to={"/"}> here </Link> to
+                    login.
+                  </strong>
                 </label>
               </div>
 
@@ -163,6 +175,7 @@ class Signup extends Component {
                 type="button"
                 className="btn btn-primary btn-sm"
                 onClick={this.signup}
+                style={style}
               >
                 Submit
               </button>
@@ -177,7 +190,7 @@ class Signup extends Component {
 
 Signup.propTypes = {
   signupUser: PropTypes.object.isRequired,
-  resetSignupState : PropTypes.func.isRequired,
+  resetSignupState: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired
 };
 
@@ -188,7 +201,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({ register,resetSignupState }, dispatch);
+  return bindActionCreators({ register, resetSignupState }, dispatch);
 };
 
 export default connect(
