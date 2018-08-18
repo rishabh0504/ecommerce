@@ -1,28 +1,29 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-
-
-.form-bg{
+.form-bg {
     background-image: url("./Images/form-bg.jpg");
     background-size: cover;
-    height:100%;
+    height: 100%;
 }
-.media-signup,.media-signin{
-	    background-color: darkcyan;
+
+.media-signup,
+.media-signin {
+    background-color: darkcyan;
     opacity: 0.85;
 }
 
-.form-color{
-	color:white;
-}
-.div-text-center{
-	text-align: center;
+.form-color {
+    color: white;
 }
 
-.media-form-body{
+.div-text-center {
+    text-align: center;
+}
+
+.media-form-body {
     margin: auto;
 }

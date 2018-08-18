@@ -20,11 +20,3 @@ export default class Body extends Component {
     );
   }
 }
-
-
-/*<Switch>
-  <Route exact path="/" component={Products} />
-  <Route exact path="/" component={Signin} />
-  <Route exact path="/productDetail" component={ProductDetail} />
-</Switch>
-*/

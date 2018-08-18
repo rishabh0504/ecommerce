@@ -3,55 +3,46 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import {
-    signin
-} from "../actions/SigninActionCreator";
+import { signin } from "../actions/SigninActionCreator";
 import Validator from "validator";
 
 class Signin extends Component {
-
-        state = {
-            data : {
-                email: "",
-                password: ""
-            },
-            loading : false,
-            errors : {}
-        };
-
-
-    inputHandler = event => {
-        this.setState({data : { ...this.state.data,[event.target.name]: event.target.value }});
+    state = {
+        data: {
+            email: "",
+            password: ""
+        },
+        loading: false,
+        errors: {}
     };
 
+    inputHandler = event => {
+        this.setState({
+            data: { ...this.state.data, [event.target.name]: event.target.value }
+        });
+    };
 
-
-    validateInputs = (data) => {
+    validateInputs = data => {
         const errors = {};
-        if(!Validator.isEmail(data.email)) errors.emailError='Please enter valid email id';
-        if(!data.password )  errors.passwordError= "Enter password";
+        if (!Validator.isEmail(data.email))
+            errors.emailError = "Please enter valid email id";
+        if (!data.password) errors.passwordError = "Enter password";
         return errors;
     };
 
     signIn = () => {
         const errors = this.validateInputs(this.state.data);
-        if(Object.keys(errors).length===0){
-            this.props.signin(
-                this.state.data.email,
-                this.state.data.password
-            );
-        }else{
-            this.setState({errors},()=>{
-            });
+        if (Object.keys(errors).length === 0) {
+            this.props.signin(this.state.data.email, this.state.data.password);
+        } else {
+            this.setState({ errors }, () => {});
         }
     };
 
-    componentDidMount() {
-
-    }
+    componentDidMount() {}
 
     render() {
-        const {data,errors} = this.state;
+        const { data, errors } = this.state;
         let error;
         let success;
         let style = {};
@@ -109,8 +100,8 @@ class Signin extends Component {
                             <div className="form-group div-text-center">
                                 <label className="form-color ">
                                     <strong>
-                                        Still don't have an account. Click <Link to={"/signup"}> here </Link> to
-                                        Signup.
+                                        Still don't have an account. Click{" "}
+                                        <Link to={"/signup"}> here </Link> to Signup.
                                     </strong>
                                 </label>
                             </div>
