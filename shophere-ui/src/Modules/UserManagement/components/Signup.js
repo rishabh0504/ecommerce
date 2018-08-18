@@ -3,73 +3,52 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
+import Validator from 'validator';
 import {
   register,
   resetSignupState
 } from "../actions/SignupActionCreator";
 
 class Signup extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailError: "",
-      passwordError: "",
-      mobileNoError: "",
-      confirmPasswordError: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      mobileNo: ""
+
+    state = {
+        data : {
+            email: "",
+            password: "",
+            confirmPassword: "",
+            mobileNo: ""
+        },
+        errors : {},
+        loading :false
+
     };
-  }
 
   inputHandler = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ data : {...this.state.data,[event.target.name]: event.target.value }});
   };
 
-  validateEmail = email => {
-    let regexForEmail = /\S+@\S+\.\S+/;
-    regexForEmail.test(email) === false
-      ? this.setState({ emailError: "Invalid Email id." })
-      : this.setState({ emailError: "" });
+
+  validateInputs = (data) => {
+      const errors = {};
+      if(!Validator.isEmail(data.email)) errors.emailError='Please enter valid email id';
+      if(/^\d+$/.test(data.mobileNo) === false) errors.mobileNoError= "Invalid mobile no.";
+      if(!data.password )  errors.passwordError= "Enter password";
+      if(!data.confirmPassword )  errors.confirmPasswordError= "Enter password";
+      if(data.password && data.password!==data.confirmPassword)  errors.confirmPasswordError= "Password did not match.";
+      return errors;
   };
 
-  validatePassword = () => {
-    this.state.password === ""
-      ? this.setState({ passwordError: "Invalid password." })
-      : this.setState({ passwordError: "" });
-    this.state.confirmPassword === ""
-      ? this.setState({ confirmPasswordError: "Invalid password." })
-      : this.setState({ confirmPasswordError: "" });
-    if (this.state.password !== this.state.confirmPassword) {
-      this.setState({ confirmPasswordError: "Password did not match." });
-    }
-  };
-  validateMobileNo = mobileNo => {
-    let regexFormobileNo = /^\d+$/;
-    regexFormobileNo.test(mobileNo) === false
-      ? this.setState({ mobileNoError: "Invalid mobile no." })
-      : this.setState({ mobileNoError: "" });
-  };
-  validateInputs = () => {
-    this.validateEmail(this.state.email);
-    this.validatePassword();
-    this.validateMobileNo(this.state.mobileNo);
-  };
-
-  signup = () => {
-    this.validateInputs();
-    if (
-      this.state.emailError === "" &&
-      this.state.passwordError === "" &&
-      this.state.confirmPasswordError === "" &&
-      this.state.mobileNoError === ""
-    ) {
-      this.props.register(
-        this.state.email,
-        this.state.password,
-        this.state.mobileNo
-      );
+  signUp = () => {
+    const errors = this.validateInputs(this.state.data);
+    if(Object.keys(errors).length===0){
+        this.props.register(
+            this.state.data.email,
+            this.state.data.password,
+            this.state.data.mobileNo
+        );
+    }else{
+        this.setState({errors},()=>{
+        });
     }
   };
 
@@ -83,6 +62,7 @@ class Signup extends Component {
   }
 
   render() {
+      const {data,errors } = this.state;
     let error;
     let success;
     let style = {};
@@ -113,12 +93,12 @@ class Signup extends Component {
                 <input
                   type="email"
                   name="email"
-                  value={this.state.email}
+                  value={this.state.data.email}
                   className="form-control"
                   onChange={this.inputHandler}
                   placeholder="Type email..."
                 />
-                <p className="text-danger">{this.state.emailError}</p>
+                <p className="text-danger">{errors.emailError}</p>
               </div>
               <div className="form-group" style={style}>
                 <label className="form-color">
@@ -127,12 +107,12 @@ class Signup extends Component {
                 <input
                   type="text"
                   name="mobileNo"
-                  value={this.state.mobileNo}
+                  value={this.state.data.mobileNo}
                   className="form-control"
                   onChange={this.inputHandler}
                   placeholder="Type Mobile no..."
                 />
-                <p className="text-danger">{this.state.mobileNoError}</p>
+                <p className="text-danger">{errors.mobileNoError}</p>
               </div>
               <div className="form-group" style={style}>
                 <label className="form-color">
@@ -141,12 +121,12 @@ class Signup extends Component {
                 <input
                   type="password"
                   name="password"
-                  value={this.state.password}
+                  value={this.state.data.password}
                   className="form-control"
                   onChange={this.inputHandler}
                   placeholder="Type Password..."
                 />
-                <p className="text-danger">{this.state.passwordError}</p>
+                <p className="text-danger">{errors.passwordError}</p>
               </div>
               <div className="form-group" style={style}>
                 <label className="form-color">
@@ -155,12 +135,12 @@ class Signup extends Component {
                 <input
                   type="password"
                   name="confirmPassword"
-                  value={this.state.confirmPassword}
+                  value={this.state.data.confirmPassword}
                   className="form-control"
                   onChange={this.inputHandler}
                   placeholder="Confirm Passwrod..."
                 />
-                <p className="text-danger">{this.state.confirmPasswordError}</p>
+                <p className="text-danger">{errors.confirmPasswordError}</p>
               </div>
               <div className="form-group div-text-center">
                 <label className="form-color ">
@@ -174,7 +154,7 @@ class Signup extends Component {
               <button
                 type="button"
                 className="btn btn-primary btn-sm"
-                onClick={this.signup}
+                onClick={this.signUp}
                 style={style}
               >
                 Submit

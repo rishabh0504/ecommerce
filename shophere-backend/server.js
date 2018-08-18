@@ -3,14 +3,14 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-
+const morgan = require('morgan');
 /* Body parser configuration*/
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
-
+app.use(morgan('dev'));
 /* Body parser configuration*/
 
 /* configurations */
