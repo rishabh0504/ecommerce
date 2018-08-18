@@ -6,53 +6,44 @@ import { bindActionCreators } from "redux";
 import {
     signin
 } from "../actions/SigninActionCreator";
+import Validator from "validator";
 
 class Signin extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            emailError: "",
-            passwordError: "",
-            email: "",
-            password: ""
+
+        state = {
+            data : {
+                email: "",
+                password: ""
+            },
+            loading : false,
+            errors : {}
         };
-    }
+
 
     inputHandler = event => {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({data : { ...this.state.data,[event.target.name]: event.target.value }});
     };
 
-    validateEmail = email => {
-        let regexForEmail = /\S+@\S+\.\S+/;
-        console.log(regexForEmail.test(email) === false);
-        regexForEmail.test(email) === false
-            ? this.setState({ emailError: "Please enter email."})
-            : this.setState({ emailError: "" });
+
+
+    validateInputs = (data) => {
+        const errors = {};
+        if(!Validator.isEmail(data.email)) errors.emailError='Please enter valid email id';
+        if(!data.password )  errors.passwordError= "Enter password";
+        return errors;
     };
 
-    validatePassword = () => {
-        this.state.password === ""
-            ? this.setState({ passwordError: "Please enter password." })
-            : this.setState({ passwordError: "" });
-    };
-
-    validateInputs = () => {
-        this.validateEmail(this.state.email);
-        this.validatePassword();
-    };
-
-    signin = () => {
-        this.validateInputs();
-        console.log(this.state);
-       /* if (
-            this.state.emailError === "" &&
-            this.state.passwordError === ""
-        ) {
+    signIn = () => {
+        const errors = this.validateInputs(this.state.data);
+        if(Object.keys(errors).length===0){
             this.props.signin(
-                this.state.email,
-                this.state.password
+                this.state.data.email,
+                this.state.data.password
             );
-        }*/
+        }else{
+            this.setState({errors},()=>{
+            });
+        }
     };
 
     componentDidMount() {
@@ -60,6 +51,7 @@ class Signin extends Component {
     }
 
     render() {
+        const {data,errors} = this.state;
         let error;
         let success;
         let style = {};
@@ -90,12 +82,12 @@ class Signin extends Component {
                                 <input
                                     type="email"
                                     name="email"
-                                    value={this.state.email}
+                                    value={data.email}
                                     className="form-control"
                                     onChange={this.inputHandler}
                                     placeholder="Type email..."
                                 />
-                                <p className="text-danger">{this.state.emailError}</p>
+                                <p className="text-danger">{errors.emailError}</p>
                             </div>
 
                             <div className="form-group" style={style}>
@@ -105,12 +97,12 @@ class Signin extends Component {
                                 <input
                                     type="password"
                                     name="password"
-                                    value={this.state.password}
+                                    value={data.password}
                                     className="form-control"
                                     onChange={this.inputHandler}
                                     placeholder="Type Password..."
                                 />
-                                <p className="text-danger">{this.state.passwordError}</p>
+                                <p className="text-danger">{errors.passwordError}</p>
                             </div>
 
                             <div className="form-group div-text-center">
@@ -125,7 +117,7 @@ class Signin extends Component {
                             <button
                                 type="button"
                                 className="btn btn-primary btn-sm"
-                                onClick={this.signin}
+                                onClick={this.signIn}
                                 style={style}
                             >
                                 Submit
