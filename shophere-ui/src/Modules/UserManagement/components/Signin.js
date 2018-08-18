@@ -3,10 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-/*import {
-    register,
-    resetSignupState
-} from "../actions/SignupActionCreator";*/
+import {
+    signin
+} from "../actions/SigninActionCreator";
 
 class Signin extends Component {
     constructor(props) {
@@ -25,21 +24,35 @@ class Signin extends Component {
 
     validateEmail = email => {
         let regexForEmail = /\S+@\S+\.\S+/;
+        console.log(regexForEmail.test(email) === false);
         regexForEmail.test(email) === false
-            ? this.setState({ emailError: "Invalid Email id." })
+            ? this.setState({ emailError: "Please enter email."})
             : this.setState({ emailError: "" });
     };
 
     validatePassword = () => {
-
+        this.state.password === ""
+            ? this.setState({ passwordError: "Please enter password." })
+            : this.setState({ passwordError: "" });
     };
 
     validateInputs = () => {
-
+        this.validateEmail(this.state.email);
+        this.validatePassword();
     };
 
     signin = () => {
-
+        this.validateInputs();
+        console.log(this.state);
+       /* if (
+            this.state.emailError === "" &&
+            this.state.passwordError === ""
+        ) {
+            this.props.signin(
+                this.state.email,
+                this.state.password
+            );
+        }*/
     };
 
     componentDidMount() {
@@ -50,13 +63,13 @@ class Signin extends Component {
         let error;
         let success;
         let style = {};
-        if (this.props.signinUser.signinUser.errorMessage !== "") {
+        /*if (this.props.signinUser.signinUser.errorMessage !== "") {
             error = this.props.signinUser.signinUser.errorMessage;
         }
         if (this.props.signinUser.signinUser.successMessage !== "") {
             error = this.props.signinUser.signinUser.successMessage;
             style.display = "none";
-        }
+        }*/
         return (
             <div className="row navbar-default form-bg">
                 <div className="col-sm-4" />
@@ -136,11 +149,11 @@ const mapStateToProps = state => {
     };
 };
 
-/*const mapDispatchToProps = dispatch => {
-    return bindActionCreators({ register, resetSignupState }, dispatch);
-};*/
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({ signin }, dispatch);
+};
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Signin);

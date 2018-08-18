@@ -9,8 +9,8 @@ userRouter.use(function(req, res, next) {
 	}
 });
 
-//userRouter.post('/login', )
+
 userRouter.post('/signup',authController.signup);
-userRouter.post('/login',authController.login);
+userRouter.post('/signin',authController.login);
 
 module.exports = userRouter;

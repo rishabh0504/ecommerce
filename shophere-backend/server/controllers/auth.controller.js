@@ -12,9 +12,9 @@ module.exports.signup = (req, res) => {
     user.save((err, data) => {
         if (err) {
             if(err.code===11000){
-                res.json({status : 409 ,message : "User already exist. Please login."});
+                res.json({status : 400 ,message : "User already exist. Please use another username or login."});
             }else{
-                res.json({status : 500 ,message : "Please try after some time."});    
+                res.json({status : 400 ,message : "Please try after some time."});
             }
         } else {
             res.json({status:200,
@@ -31,20 +31,21 @@ module.exports.login = (req, res) => {
     }, (err, user) => {
         if (err) throw err;
         if (!user) {
-            res.json({
-                'message': 'User Does not exist.'
+            res.json({status:403,
+                'message': 'Invalid username or password.'
             });
         } else {
             user.comparePassword(req.body.password, function(err, isMatch) {
                 if (err) throw err;
                 if (!isMatch) {
                     res.json({
-                        'message': 'Password not matched.'
+                        status :403,
+                        'message': 'Invalid username or password.'
                     });
                 } else {
                 	let token=jwt.sign(user.password,config.secret_token);
                      user.password="";
-                    res.json({user : user,token:token});
+                    res.json({status:200,user : user,token:token});
                 }
             });
         }
