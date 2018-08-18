@@ -12,3 +12,8 @@ export const SIGN_IN_ERROR = 'SIGN_IN_ERROR';
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS';
 export const  SIGN_IN_LOADING = 'SIGN_IN_LOADING';
 export const  SIGN_IN_RESET= 'SIGN_IN_RESET';
+
+export const USER_LOGIN= 'USER_LOGIN';
+export const USER_LOGOUT = 'USER_LOGOUT';
+export const USER_UNAUTHORIZE = 'USER_UNAUTHORIZE';
+

@@ -16,7 +16,7 @@ class Signup extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            mobileNo: ""
+            mobile: ""
         },
         errors : {},
         loading :false
@@ -31,7 +31,7 @@ class Signup extends Component {
   validateInputs = (data) => {
       const errors = {};
       if(!Validator.isEmail(data.email)) errors.emailError='Please enter valid email id';
-      if(/^\d+$/.test(data.mobileNo) === false) errors.mobileNoError= "Invalid mobile no.";
+      if(/^\d+$/.test(data.mobile) === false) errors.mobileError= "Invalid mobile no.";
       if(!data.password )  errors.passwordError= "Enter password";
       if(!data.confirmPassword )  errors.confirmPasswordError= "Enter password";
       if(data.password && data.password!==data.confirmPassword)  errors.confirmPasswordError= "Password did not match.";
@@ -44,7 +44,7 @@ class Signup extends Component {
         this.props.register(
             this.state.data.email,
             this.state.data.password,
-            this.state.data.mobileNo
+            this.state.data.mobile
         );
     }else{
         this.setState({errors},()=>{
@@ -106,13 +106,13 @@ class Signup extends Component {
                 </label>
                 <input
                   type="text"
-                  name="mobileNo"
-                  value={this.state.data.mobileNo}
+                  name="mobile"
+                  value={this.state.data.mobile}
                   className="form-control"
                   onChange={this.inputHandler}
                   placeholder="Type Mobile no..."
                 />
-                <p className="text-danger">{errors.mobileNoError}</p>
+                <p className="text-danger">{errors.mobileError}</p>
               </div>
               <div className="form-group" style={style}>
                 <label className="form-color">

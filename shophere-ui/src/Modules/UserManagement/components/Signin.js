@@ -55,13 +55,14 @@ class Signin extends Component {
         let error;
         let success;
         let style = {};
-        /*if (this.props.signinUser.signinUser.errorMessage !== "") {
+        console.log(this.props.signinUser);
+        if (this.props.signinUser.signinUser.errorMessage !== "") {
             error = this.props.signinUser.signinUser.errorMessage;
         }
         if (this.props.signinUser.signinUser.successMessage !== "") {
             error = this.props.signinUser.signinUser.successMessage;
             style.display = "none";
-        }*/
+        }
         return (
             <div className="row navbar-default form-bg">
                 <div className="col-sm-4" />
@@ -132,7 +133,8 @@ class Signin extends Component {
 }
 
 Signin.propTypes = {
-    signinUser: PropTypes.object.isRequired
+    signinUser: PropTypes.object.isRequired,
+    signin: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {

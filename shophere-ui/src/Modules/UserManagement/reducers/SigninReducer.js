@@ -17,9 +17,7 @@ export default function(state = initialState, action) {
         case SIGN_IN_SUCCESS:
             return {
                 ...state,
-
-                signinUser :{...state.signinUser,successMessage:action.payload}
-
+                loggedInUser :{...state.loggedInUser,loggedInUser:action.payload}
             };
         case SIGN_IN_RESET:
             return {
