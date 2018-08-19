@@ -1,9 +1,9 @@
 import {
-	SIGN_UP_SUCCESS,
-	SIGN_UP_ERROR,
-	SIGN_UP_LOADING,
-	SIGN_UP_RESET
- } from './UserManagementActions';
+    SIGN_UP_SUCCESS,
+    SIGN_UP_ERROR,
+    SIGN_UP_LOADING,
+    SIGN_UP_RESET, USER_LOGIN
+} from './UserManagementActions';
 import {SERVER_URL} from '../../Common/API_END_POINTS';
 
 import axios from 'axios';
@@ -31,7 +31,13 @@ import axios from 'axios';
 	})
  }
 
-
+export const userAlreadySignin = () => dispatch => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    dispatch({
+        type: USER_LOGIN,
+        payload: loggedInUser
+    })
+};
  export const resetSignupState = ()=>dispatch =>{
  	dispatch({
  		type:SIGN_UP_RESET

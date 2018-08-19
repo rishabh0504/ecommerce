@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import Validator from "validator";
-import { register, resetSignupState } from "../actions/SignupActionCreator";
+import { register, resetSignupState,userAlreadySignin } from "../actions/SignupActionCreator";
 
 class Signup extends Component {
     state = {
@@ -51,6 +51,10 @@ class Signup extends Component {
     };
 
     componentDidMount() {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
+            this.props.userAlreadySignin();
+        }
         if (
             this.props.signupUser.signupUser.successMessage !== "" &&
             this.props.signupUser.signupUser.successMessage !== ""
@@ -169,7 +173,8 @@ class Signup extends Component {
 Signup.propTypes = {
     signupUser: PropTypes.object.isRequired,
     resetSignupState: PropTypes.func.isRequired,
-    register: PropTypes.func.isRequired
+    register: PropTypes.func.isRequired,
+    userAlreadySignin : PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -179,7 +184,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({ register, resetSignupState }, dispatch);
+    return bindActionCreators({ register, resetSignupState,userAlreadySignin }, dispatch);
 };
 
 export default connect(
