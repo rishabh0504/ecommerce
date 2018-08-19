@@ -143,7 +143,7 @@ class Signup extends Component {
                             <div className="form-group div-text-center">
                                 <label className="form-color ">
                                     <strong>
-                                        Already have account. Click <Link to={"/"}> here </Link> to
+                                        Already have account. Click <Link to={"/signin"}> here </Link> to
                                         login.
                                     </strong>
                                 </label>
