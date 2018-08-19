@@ -13,3 +13,12 @@
 [2018-08-19T03:08:29.723] [INFO] default - Connected to database.
 [2018-08-19T03:08:29.830] [INFO] default - Server started
 [2018-08-19T03:08:30.671] [ERROR] default - null
+[2018-08-19T12:04:12.233] [INFO] default - Connecting to database.
+[2018-08-19T12:04:18.192] [INFO] default - Connecting to database.
+[2018-08-19T12:04:18.262] [INFO] default - Connected to database.
+[2018-08-19T12:04:18.404] [INFO] default - Server started
+[2018-08-19T12:04:19.472] [ERROR] default - null
+[2018-08-19T12:16:00.346] [INFO] default - Connecting to database.
+[2018-08-19T12:16:00.376] [INFO] default - Connected to database.
+[2018-08-19T12:16:00.454] [INFO] default - Server started
+[2018-08-19T12:16:01.383] [ERROR] default - null

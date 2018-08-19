@@ -46,7 +46,7 @@ class Signin extends Component {
         let error;
         let success;
         let style = {};
-        console.log(this.props.signinUser);
+
         if (this.props.signinUser.signinUser.errorMessage !== "") {
             error = this.props.signinUser.signinUser.errorMessage;
         }

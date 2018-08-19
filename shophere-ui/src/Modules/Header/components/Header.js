@@ -8,7 +8,7 @@ export default class Header extends Component {
     return (
       <nav className="navbar navbar-expand-sm bg-info navbar-dark">
         <a className="navbar-brand shophere-header">
-          <img className="logo" src={require("../Images/logo.png")} />
+          <img className="logo" src={require("../../../Images/logo.png")} />
         </a>
         <ul className="navbar-nav">
           <li className="nav-item">
