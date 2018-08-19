@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link ,Redirect} from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
@@ -44,10 +44,16 @@ class Signin extends Component {
         const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
         if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
             this.props.userAlreadySignin();
+            return <Redirect to='/signup'/>;
         }
     }
 
     render() {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
+            this.props.userAlreadySignin();
+            return <Redirect to='/'/>;
+        }
         const { data, errors } = this.state;
         let error;
         let success;
