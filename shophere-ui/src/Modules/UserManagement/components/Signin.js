@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import { signin } from "../actions/SigninActionCreator";
+import { signin ,userAlreadySignin } from "../actions/SigninActionCreator";
 import Validator from "validator";
+
 
 class Signin extends Component {
     state = {
@@ -39,7 +40,12 @@ class Signin extends Component {
         }
     };
 
-    componentDidMount() {}
+    componentDidMount() {
+        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
+            this.props.userAlreadySignin();
+        }
+    }
 
     render() {
         const { data, errors } = this.state;
@@ -125,7 +131,8 @@ class Signin extends Component {
 
 Signin.propTypes = {
     signinUser: PropTypes.object.isRequired,
-    signin: PropTypes.func.isRequired
+    signin: PropTypes.func.isRequired,
+    userAlreadySignin : PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => {
@@ -135,7 +142,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-    return bindActionCreators({ signin }, dispatch);
+    return bindActionCreators({ signin ,userAlreadySignin}, dispatch);
 };
 
 export default connect(

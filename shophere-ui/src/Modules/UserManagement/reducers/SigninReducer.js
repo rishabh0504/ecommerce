@@ -7,7 +7,8 @@ import {
 const initialState = {
     signinUser: {
         errorMessage: "",
-        successMessage: ""
+        successMessage: "",
+        loading : false
     }
 };
 
@@ -16,12 +17,12 @@ export default function(state = initialState, action) {
         case SIGN_IN_ERROR:
             return {
                 ...state,
-                signinUser: { ...state.signinUser, errorMessage: action.payload }
+                signinUser: { ...state.signinUser, ...action.payload }
             };
         case SIGN_IN_SUCCESS:
             return {
                 ...state,
-                loggedInUser: { ...state.loggedInUser, loggedInUser: action.payload }
+                signinUser: { ...state.signinUser,loading:action.payload}
             };
         case SIGN_IN_RESET:
             return {
