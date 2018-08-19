@@ -2,7 +2,7 @@ import {
     SIGN_IN_ERROR,
     USER_LOGIN
 } from "./UserManagementActions";
-import { SERVER_URL } from "../../../API_END";
+import { SERVER_URL } from "../../Common/API_END_POINTS";
 
 import axios from "axios";
 

@@ -1,17 +1,14 @@
-
-
 import {
 	SIGN_UP_SUCCESS,
 	SIGN_UP_ERROR,
 	SIGN_UP_LOADING,
 	SIGN_UP_RESET
  } from './UserManagementActions';
-import {SERVER_URL} from '../../../API_END';
+import {SERVER_URL} from '../../Common/API_END_POINTS';
 
 import axios from 'axios';
 
  export const register = (email,password,mobile)=>dispatch =>{
- 	console.log('register api is hitted');
  	axios.post(`${SERVER_URL}/user/signup`,{email,password,mobile,username:email})
 	.then(res=>{
 		console.log(res);
