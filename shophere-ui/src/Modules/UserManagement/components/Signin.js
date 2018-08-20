@@ -41,14 +41,18 @@ class Signin extends Component {
     };
 
     componentDidMount() {
-        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
         if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
             this.props.userAlreadySignin();
         }
     }
 
+    componentWillReceiveProps(newProps){
+        console.log('received new Props',newProps.loggedInUser);
+    }
+
     render() {
-        const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+        const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
         const { data, errors } = this.state;
         let error;
         let success;
@@ -138,7 +142,8 @@ Signin.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        signinUser: state.signinUser
+        signinUser: state.signinUser,
+        loggedInUser : state.loggedInUser
     };
 };
 

@@ -21,7 +21,7 @@ export const signin = (email, password) => dispatch => {
                 const loggedInUser = res.data.user;
                 loggedInUser.token = res.data.token;
                 loggedInUser.isLoggedIn = true;
-                localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+                sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
                 dispatch({
                     type: USER_LOGIN,
                     payload: loggedInUser
@@ -35,7 +35,7 @@ export const signin = (email, password) => dispatch => {
 };
 
 export const userAlreadySignin = () => dispatch => {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
     dispatch({
         type: USER_LOGIN,
         payload: loggedInUser

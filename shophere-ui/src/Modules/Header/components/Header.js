@@ -14,8 +14,8 @@ class Header extends Component {
             dynamicComponents = this.state.privateContents.map(
                 (privateContent, index) => {
                     return (
-                        <li className="nav-item" key={index}>
-                            <Link className="custom-navbar" to={"/signin"}>
+                        <li className="nav-item nav-padding" key={index}>
+                            <Link className="custom-navbar nav-padding" to={"/signin"}>
                                 {privateContent}
                             </Link>
                         </li>
@@ -26,8 +26,8 @@ class Header extends Component {
             dynamicComponents = this.state.publicContents.map(
                 (publicContent, index) => {
                     return (
-                        <li className="nav-item" key={index}>
-                            <Link className="custom-navbar" to={"/signin"}>
+                        <li className="nav-item nav-padding" key={index}>
+                            <Link className="custom-navbar nav-padding"  to={"/signin"}>
                                 {publicContent}
                             </Link>
                         </li>
