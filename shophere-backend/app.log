@@ -36,3 +36,183 @@
 [2018-08-20T11:18:28.216] [INFO] default - Connected to database.
 [2018-08-20T11:18:28.320] [INFO] default - Server started
 [2018-08-20T11:18:29.080] [ERROR] default - null
+[2018-08-20T12:34:20.319] [INFO] default - Connecting to database.
+[2018-08-20T12:34:20.488] [INFO] default - Connected to database.
+[2018-08-20T12:34:20.961] [INFO] default - Server started
+[2018-08-20T12:34:22.068] [ERROR] default - null
+[2018-08-20T12:34:26.003] [INFO] default - Connecting to database.
+[2018-08-20T12:34:26.043] [INFO] default - Connected to database.
+[2018-08-20T12:34:26.117] [INFO] default - Server started
+[2018-08-20T12:34:27.038] [ERROR] default - null
+[2018-08-20T12:45:21.814] [INFO] default - Connecting to database.
+[2018-08-20T12:45:21.855] [INFO] default - Connected to database.
+[2018-08-20T12:45:21.960] [INFO] default - Server started
+[2018-08-20T12:45:22.807] [ERROR] default - null
+[2018-08-20T12:45:40.919] [INFO] default - Connecting to database.
+[2018-08-20T12:45:40.968] [INFO] default - Connected to database.
+[2018-08-20T12:45:41.092] [INFO] default - Server started
+[2018-08-20T12:45:42.611] [ERROR] default - null
+[2018-08-20T12:45:54.095] [INFO] default - Connecting to database.
+[2018-08-20T12:45:54.127] [INFO] default - Connected to database.
+[2018-08-20T12:45:54.209] [INFO] default - Server started
+[2018-08-20T12:45:55.060] [ERROR] default - null
+[2018-08-20T12:46:31.342] [INFO] default - Connecting to database.
+[2018-08-20T12:46:31.400] [INFO] default - Connected to database.
+[2018-08-20T12:46:31.587] [INFO] default - Server started
+[2018-08-20T12:46:33.021] [ERROR] default - null
+[2018-08-20T12:46:50.907] [INFO] default - Connecting to database.
+[2018-08-20T12:46:50.971] [INFO] default - Connected to database.
+[2018-08-20T12:46:51.150] [INFO] default - Server started
+[2018-08-20T12:46:52.009] [ERROR] default - null
+[2018-08-20T12:51:47.607] [INFO] default - Connecting to database.
+[2018-08-20T12:51:47.641] [INFO] default - Connected to database.
+[2018-08-20T12:51:47.741] [INFO] default - Server started
+[2018-08-20T12:51:49.620] [ERROR] default - null
+[2018-08-20T12:53:07.021] [INFO] default - Connecting to database.
+[2018-08-20T12:53:07.069] [INFO] default - Connected to database.
+[2018-08-20T12:53:07.183] [INFO] default - Server started
+[2018-08-20T12:53:08.036] [ERROR] default - null
+[2018-08-20T12:55:35.391] [INFO] default - Connecting to database.
+[2018-08-20T12:55:35.436] [INFO] default - Connected to database.
+[2018-08-20T12:55:35.553] [INFO] default - Server started
+[2018-08-20T12:55:36.395] [ERROR] default - null
+[2018-08-20T12:58:53.916] [INFO] default - Connecting to database.
+[2018-08-20T12:58:53.983] [INFO] default - Connected to database.
+[2018-08-20T12:58:54.233] [INFO] default - Server started
+[2018-08-20T12:58:55.146] [ERROR] default - null
+[2018-08-20T14:03:41.904] [INFO] default - Connecting to database.
+[2018-08-20T14:03:41.938] [INFO] default - Connected to database.
+[2018-08-20T14:03:42.107] [INFO] default - Server started
+[2018-08-20T14:03:45.027] [INFO] default - Connecting to database.
+[2018-08-20T14:03:45.050] [INFO] default - Connected to database.
+[2018-08-20T14:03:45.131] [INFO] default - Server started
+[2018-08-20T14:03:45.905] [ERROR] default - null
+[2018-08-20T14:15:02.171] [INFO] default - Connecting to database.
+[2018-08-20T14:15:02.203] [INFO] default - Connected to database.
+[2018-08-20T14:15:02.292] [INFO] default - Server started
+[2018-08-20T14:15:03.187] [ERROR] default - null
+[2018-08-27T01:57:20.139] [INFO] default - Connecting to database.
+[2018-08-27T01:57:20.186] [INFO] default - Connected to database.
+[2018-08-27T01:57:20.769] [INFO] default - Server started
+[2018-08-27T01:57:27.102] [INFO] default - Connecting to database.
+[2018-08-27T01:57:27.156] [INFO] default - Connected to database.
+[2018-08-27T01:57:27.296] [INFO] default - Server started
+[2018-08-27T01:57:28.219] [ERROR] default - null
+[2018-09-02T15:32:57.665] [INFO] default - Connecting to database.
+[2018-09-02T15:32:57.699] [INFO] default - Connected to database.
+[2018-09-02T15:32:58.534] [INFO] default - Server started
+[2018-09-02T15:32:59.347] [ERROR] default - null
+[2018-09-02T15:45:58.737] [INFO] default - Connecting to database.
+[2018-09-02T15:45:58.841] [INFO] default - Connected to database.
+[2018-09-02T15:45:58.996] [INFO] default - Server started
+[2018-09-02T15:45:59.873] [ERROR] default - null
+[2018-09-02T15:46:17.627] [INFO] default - Connecting to database.
+[2018-09-02T15:46:17.667] [INFO] default - Connected to database.
+[2018-09-02T15:46:17.797] [INFO] default - Server started
+[2018-09-02T15:46:18.746] [ERROR] default - null
+[2018-09-02T15:46:27.723] [INFO] default - Connecting to database.
+[2018-09-02T15:46:27.745] [INFO] default - Connected to database.
+[2018-09-02T15:46:27.808] [INFO] default - Server started
+[2018-09-02T15:46:28.602] [ERROR] default - null
+[2018-09-02T15:49:31.433] [INFO] default - Connecting to database.
+[2018-09-02T15:49:31.458] [INFO] default - Connected to database.
+[2018-09-02T15:49:31.543] [INFO] default - Server started
+[2018-09-02T15:49:32.354] [ERROR] default - null
+[2018-09-02T15:50:26.222] [INFO] default - Connecting to database.
+[2018-09-02T15:50:26.286] [INFO] default - Connected to database.
+[2018-09-02T15:50:26.437] [INFO] default - Server started
+[2018-09-02T15:50:27.321] [ERROR] default - null
+[2018-09-02T15:52:49.654] [INFO] default - Connecting to database.
+[2018-09-02T15:52:49.692] [INFO] default - Connected to database.
+[2018-09-02T15:52:49.784] [INFO] default - Server started
+[2018-09-02T15:52:50.789] [ERROR] default - null
+[2018-09-02T15:52:55.692] [INFO] default - Connecting to database.
+[2018-09-02T15:52:55.730] [INFO] default - Connected to database.
+[2018-09-02T15:52:55.827] [INFO] default - Server started
+[2018-09-02T15:52:56.669] [ERROR] default - null
+[2018-09-02T15:53:30.239] [INFO] default - Connecting to database.
+[2018-09-02T15:53:30.305] [INFO] default - Connected to database.
+[2018-09-02T15:53:30.421] [INFO] default - Server started
+[2018-09-02T15:53:31.177] [ERROR] default - null
+[2018-09-02T15:57:20.131] [INFO] default - Connecting to database.
+[2018-09-02T15:57:20.176] [INFO] default - Connected to database.
+[2018-09-02T15:57:20.290] [INFO] default - Server started
+[2018-09-02T15:57:21.109] [ERROR] default - null
+[2018-09-02T15:57:40.876] [INFO] default - Connecting to database.
+[2018-09-02T15:57:40.915] [INFO] default - Connected to database.
+[2018-09-02T15:57:41.022] [INFO] default - Server started
+[2018-09-02T15:57:41.881] [ERROR] default - null
+[2018-09-02T15:57:53.678] [INFO] default - Connecting to database.
+[2018-09-02T15:57:53.710] [INFO] default - Connected to database.
+[2018-09-02T15:57:53.795] [INFO] default - Server started
+[2018-09-02T15:57:54.704] [ERROR] default - null
+[2018-09-02T15:59:03.894] [INFO] default - Connecting to database.
+[2018-09-02T15:59:03.936] [INFO] default - Connected to database.
+[2018-09-02T15:59:04.043] [INFO] default - Server started
+[2018-09-02T15:59:04.825] [ERROR] default - null
+[2018-09-02T15:59:23.431] [INFO] default - Connecting to database.
+[2018-09-02T15:59:23.467] [INFO] default - Connected to database.
+[2018-09-02T15:59:23.584] [INFO] default - Server started
+[2018-09-02T15:59:24.462] [ERROR] default - null
+[2018-09-02T16:03:12.297] [INFO] default - Connecting to database.
+[2018-09-02T16:03:12.364] [INFO] default - Connected to database.
+[2018-09-02T16:03:12.565] [INFO] default - Server started
+[2018-09-02T16:03:13.559] [ERROR] default - null
+[2018-09-02T16:03:29.304] [INFO] default - Connecting to database.
+[2018-09-02T16:03:29.385] [INFO] default - Connected to database.
+[2018-09-02T16:03:29.574] [INFO] default - Server started
+[2018-09-02T16:03:30.535] [ERROR] default - null
+[2018-09-02T16:31:16.258] [INFO] default - Connecting to database.
+[2018-09-02T16:31:16.292] [INFO] default - Connected to database.
+[2018-09-02T16:31:16.560] [INFO] default - Server started
+[2018-09-02T16:31:17.713] [ERROR] default - null
+[2018-09-02T16:31:54.374] [INFO] default - Connecting to database.
+[2018-09-02T16:31:54.400] [INFO] default - Connected to database.
+[2018-09-02T16:31:54.472] [INFO] default - Server started
+[2018-09-02T16:31:55.424] [ERROR] default - null
+[2018-09-02T16:34:14.272] [INFO] default - Connecting to database.
+[2018-09-02T16:34:14.322] [INFO] default - Connected to database.
+[2018-09-02T16:34:14.482] [INFO] default - Server started
+[2018-09-02T16:34:17.591] [INFO] default - Connecting to database.
+[2018-09-02T16:34:17.624] [INFO] default - Connected to database.
+[2018-09-02T16:34:17.714] [INFO] default - Server started
+[2018-09-02T16:34:18.750] [ERROR] default - null
+[2018-09-02T16:37:30.354] [INFO] default - Connecting to database.
+[2018-09-02T16:37:30.394] [INFO] default - Connected to database.
+[2018-09-02T16:37:30.478] [INFO] default - Server started
+[2018-09-02T16:37:31.907] [ERROR] default - null
+[2018-09-02T16:38:09.700] [INFO] default - Connecting to database.
+[2018-09-02T16:38:09.733] [INFO] default - Connected to database.
+[2018-09-02T16:38:09.842] [INFO] default - Server started
+[2018-09-02T16:38:10.987] [ERROR] default - null
+[2018-09-02T16:49:16.603] [INFO] default - Connecting to database.
+[2018-09-02T16:49:16.631] [INFO] default - Connected to database.
+[2018-09-02T16:49:16.713] [INFO] default - Server started
+[2018-09-02T16:49:17.700] [ERROR] default - null
+[2018-09-02T18:44:43.200] [INFO] default - Connecting to database.
+[2018-09-02T18:44:43.251] [INFO] default - Connected to database.
+[2018-09-02T18:44:43.412] [INFO] default - Server started
+[2018-09-02T18:44:47.195] [INFO] default - Connecting to database.
+[2018-09-02T18:44:47.223] [INFO] default - Connected to database.
+[2018-09-02T18:44:47.288] [INFO] default - Server started
+[2018-09-02T18:44:48.298] [ERROR] default - null
+[2018-09-02T18:46:22.957] [INFO] default - Connecting to database.
+[2018-09-02T18:46:22.979] [INFO] default - Connected to database.
+[2018-09-02T18:46:23.045] [INFO] default - Server started
+[2018-09-02T18:46:24.164] [ERROR] default - null
+[2018-09-02T19:14:05.674] [INFO] default - Connecting to database.
+[2018-09-02T19:14:05.707] [INFO] default - Connected to database.
+[2018-09-02T19:14:05.807] [INFO] default - Server started
+[2018-09-02T19:14:07.098] [ERROR] default - null
+[2018-09-02T19:23:46.918] [INFO] default - Connecting to database.
+[2018-09-02T19:23:46.953] [INFO] default - Connected to database.
+[2018-09-02T19:23:47.028] [INFO] default - Server started
+[2018-09-02T19:23:48.064] [ERROR] default - null
+[2018-09-02T19:24:02.757] [INFO] default - Connecting to database.
+[2018-09-02T19:24:02.780] [INFO] default - Connected to database.
+[2018-09-02T19:24:02.834] [INFO] default - Server started
+[2018-09-02T19:24:03.966] [ERROR] default - null
+[2018-09-02T19:24:56.213] [INFO] default - Connecting to database.
+[2018-09-02T19:24:56.263] [INFO] default - Connected to database.
+[2018-09-02T19:24:56.402] [INFO] default - Server started
+[2018-09-02T19:24:57.650] [ERROR] default - null

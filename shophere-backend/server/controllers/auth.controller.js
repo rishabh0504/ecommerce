@@ -26,6 +26,7 @@ module.exports.signup = (req, res) => {
 
 
 module.exports.login = (req, res) => {
+    console.log(req.cookies.token);
     User.findOne({
         username: req.body.username
     }, (err, user) => {
@@ -45,7 +46,14 @@ module.exports.login = (req, res) => {
                 } else {
                 	let token=jwt.sign(user.password,config.secret_token);
                      user.password="";
-                    res.json({status:200,user : user,token:token});
+                    const options = {
+                        maxAge: 1000 * 60 * 1, // would expire after 15 minutes
+                        httpOnly: true, // The cookie only accessible by the web server
+                        signed: true, // Indicates if the cookie should be signed
+                        token
+                    }
+                  
+                    res.json({status:200,user, token : options});
                 }
             });
         }

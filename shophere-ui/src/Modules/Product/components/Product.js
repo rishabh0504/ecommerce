@@ -6,7 +6,7 @@ class Product extends Component {
       <div className="card product-card">
         <img
           className="card-img-top product-image"
-          src="https:\/\/cdn.shopify.com\/s\/files\/1\/0000\/2442\/products\/shopify_shirt.png?v=1155241139"
+          src="https://cdn.shopify.com/s/files/1/0000/2442/products/shopify_shirt.png?v=1155241139"
         />
         <div className="card-body">
           <h4 className="card-title">John Doe</h4>

@@ -1,16 +1,20 @@
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
 import {
     SIGN_IN_ERROR,
     USER_LOGIN,
     SIGN_IN_SUCCESS
 } from "./UserManagementActions";
+
 import { SERVER_URL } from "../../Common/API_END_POINTS";
 
-import axios from "axios";
 
 export const signin = (email, password) => dispatch => {
     axios
-        .post(`${SERVER_URL}/user/signin`, { username: email, password })
+        .post(`/user/signin`, { username: email, password })
         .then(res => {
+            console.log(res);
             if (res.data.status === 403) {
                 dispatch({
                     type: SIGN_IN_ERROR,
@@ -18,9 +22,13 @@ export const signin = (email, password) => dispatch => {
                 });
             }
             if (res.data.status === 200) {
+                console.log(document.cookie);
                 const loggedInUser = res.data.user;
-                loggedInUser.token = res.data.token;
                 loggedInUser.isLoggedIn = true;
+                const {token} = res.data;
+                Object.keys(token).map(key=>{
+                    Cookies.set(key,token[key]);    
+                })
                 sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
                 dispatch({
                     type: USER_LOGIN,
@@ -47,3 +55,5 @@ export const resetSigninState = () => dispatch => {
           type:SIGN_UP_RESET
       })*/
 };
+
+
