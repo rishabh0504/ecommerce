@@ -28,7 +28,6 @@ body {
     margin: auto;
 }
 
-.nav-padding{
-    margin-left:2%;
-    margin-right:2%;
+.nav-margin{
+    margin-right:5% !important;
 }

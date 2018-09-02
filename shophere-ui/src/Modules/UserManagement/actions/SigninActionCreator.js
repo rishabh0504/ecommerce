@@ -14,7 +14,6 @@ export const signin = (email, password) => dispatch => {
     axios
         .post(`/user/signin`, { username: email, password })
         .then(res => {
-            console.log(res);
             if (res.data.status === 403) {
                 dispatch({
                     type: SIGN_IN_ERROR,
@@ -22,10 +21,7 @@ export const signin = (email, password) => dispatch => {
                 });
             }
             if (res.data.status === 200) {
-                console.log(document.cookie);
-                const loggedInUser = res.data.user;
-                loggedInUser.isLoggedIn = true;
-                const {token} = res.data;
+                const {user : loggedInUser,token} = res.data;
                 Object.keys(token).map(key=>{
                     Cookies.set(key,token[key]);    
                 })

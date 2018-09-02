@@ -13,7 +13,9 @@ export default class Body extends Component {
           <Switch>
             <Route exact path="/" component={Products} />
             <Route exact path="/signup" component={Signup} />
-             <Route exact path="/signin" component={Signin} />
+            <Route exact path="/signin" component={Signin} />
+            <Route exact path="/products" component={Products} />
+            <Route exact path="/products" component={Products} />
           </Switch>
         </div>
       </div>

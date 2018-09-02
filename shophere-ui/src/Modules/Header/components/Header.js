@@ -1,48 +1,49 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import Cookies from 'js-cookie';
+
 class Header extends Component {
     state = {
-        privateContents: ["Settings", "User", "Logout"],
-        publicContents: ["Products", "SignIn"]
+        privateContents: [{'Settings':'settings'}, {'User':'user'}, {'Logout':'logout'}],
+        publicContents: [{'Products':'products'}, {'SignIn':'signin'}]
     };
 
     render() {
-        console.log(this.props.loggedInUser);
-        let dynamicComponents;
-        if (this.props.loggedInUser.loggedInUser.isLoggedIn) {
-            dynamicComponents = this.state.privateContents.map(
-                (privateContent, index) => {
-                    return (
-                        <li className="nav-item nav-padding" key={index}>
-                            <Link className="custom-navbar nav-padding" to={"/signin"}>
-                                {privateContent}
-                            </Link>
-                        </li>
-                    );
-                }
-            );
+        let dynamicHeader;
+        if (Cookies.get('token')) {
+            dynamicHeader =  this.state.privateContents.map((item,index)=>{
+                return (
+                    <li className="nav-item nav-margin" key={index}>
+                        <NavLink className="" style={{ textDecoration: 'none', color:'white' }} to={`/${item[Object.keys(item)[0]]}`} >
+                            {Object.keys(item)[0]}
+                        </NavLink>
+                    </li>
+                );
+            });
         } else {
-            dynamicComponents = this.state.publicContents.map(
-                (publicContent, index) => {
-                    return (
-                        <li className="nav-item nav-padding" key={index}>
-                            <Link className="custom-navbar nav-padding"  to={"/signin"}>
-                                {publicContent}
-                            </Link>
-                        </li>
-                    );
-                }
-            );
+            dynamicHeader =  this.state.publicContents.map((item,index)=>{
+                return (
+                    <li className="nav-item nav-margin" key={index}>
+                        <NavLink className="" style={{ textDecoration: 'none', color:'white' }} to={`/${item[Object.keys(item)[0]]}`} >
+                            {Object.keys(item)[0]}
+                        </NavLink>
+                    </li>
+                );
+            });
         }
 
         return (
-            <nav className="navbar navbar-expand-sm bg-info navbar-dark">
-                <Link className="navbar-brand shophere-header" to={"/"}>
-                    <img className="logo" src={require("../../../Images/logo.png")} />
-                </Link>
-                <ul className="navbar-nav">{dynamicComponents}</ul>
-            </nav>
+            <div className='row'>
+            <div className='col-sm-12'>
+                <nav style={{paddingLeft:'2%',paddingRight:'2%'}} className="navbar navbar-expand-sm bg-info navbar-dark">
+                    <Link className="navbar-brand shophere-header" to={"/"}>
+                        <img className="logo" src={require("../../../Images/logo.png")} />
+                    </Link>
+                    <ul className="navbar-nav">{dynamicHeader}</ul>
+                </nav>
+            </div>
+            </div>
         );
     }
 }
