@@ -42,7 +42,7 @@ class Signin extends Component {
 
     componentDidMount() {
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
-        if(loggedInUser && loggedInUser.isLoggedIn && loggedInUser.token){
+        if(loggedInUser && Object.keys(loggedInUser).length>0){
             this.props.userAlreadySignin();
         }
     }

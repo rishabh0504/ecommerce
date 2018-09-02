@@ -5,7 +5,7 @@ const config = require('../config/config');
 
 authMiddleware.use(function(req, res, next) {
 	
-	if(!req.headers['authorization']){
+	/*if(!req.headers['authorization']){
 		res.json({"message":"User not authorized."});
 	}else{
 		var token = req.headers['authorization'].split(' ');
@@ -16,7 +16,7 @@ authMiddleware.use(function(req, res, next) {
 				next();
 			}
 		});
-	}
+	}*/
 });
 
 module.exports = authMiddleware; 

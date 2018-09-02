@@ -47,7 +47,7 @@ module.exports.login = (req, res) => {
                 	let token=jwt.sign(user.password,config.secret_token);
                      user.password="";
                     const options = {
-                        maxAge: 1000 * 60 * 1, // would expire after 15 minutes
+                        expires: 1000 * 60 * 1, // would expire after 15 minutes
                         httpOnly: true, // The cookie only accessible by the web server
                         signed: true, // Indicates if the cookie should be signed
                         token
