@@ -23,7 +23,7 @@ class Header extends Component {
                 >
                   <img
                     className="logo"
-                    style={{ width: "60%" }}
+                    style={{ width: "100%" }}
                     src={require("../../../Images/logo.png")}
                   />
                 </Link>
@@ -51,7 +51,7 @@ class Header extends Component {
                 >
                   <img
                     className="logo"
-                    style={{ width: "60%" }}
+                    style={{ width: "100%" }}
                     src={require("../../../Images/logo.png")}
                   />
                 </Link>

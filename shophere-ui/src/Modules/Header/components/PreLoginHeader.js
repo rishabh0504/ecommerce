@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { userAlreadySignin } from "../../UserManagement/actions/SigninActionCreator";
 import { bindActionCreators } from "redux";
 import "../assets/styles/postlogin.css";
-
+import PropTypes from "prop-types";
 //import { library } from "@fortawesome/fontawesome-svg-core";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faCog, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -86,6 +86,11 @@ class PreLoginHeader extends Component {
     return <div className="row">{header}</div>;
   }
 }
+
+PreLoginHeader.propTypes = {
+    user: PropTypes.object.isRequired,
+    userAlreadySignin : PropTypes.func.isRequired
+};
 const mapStateToProps = state => {
   return {
     user: state.loggedInUser

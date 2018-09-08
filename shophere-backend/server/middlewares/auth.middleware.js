@@ -5,6 +5,7 @@ const config = require('../config/config');
 
 authMiddleware.use(function(req, res, next) {
 	
+	console.log(JSON.stringify(req.cookies));
 	/*if(!req.headers['authorization']){
 		res.json({"message":"User not authorized."});
 	}else{

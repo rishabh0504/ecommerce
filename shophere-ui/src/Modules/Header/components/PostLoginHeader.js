@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import Cookies from "js-cookie";
 import { userAlreadySignin } from "../../UserManagement/actions/SigninActionCreator";
 import { bindActionCreators } from "redux";
 import "../assets/styles/postlogin.css";
+import PropTypes from "prop-types";
+import Cookies from "js-cookie";
+import history from "../../Common/history";
 
 //import { library } from "@fortawesome/fontawesome-svg-core";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,26 +16,18 @@ import "../assets/styles/postlogin.css";
 class PostLoginHeader extends Component {
   state = {
     headerRoutes: [
-      { products: "Products", type: "link" },
+      { Products: "products", type: "link" },
       {
-        category: "Categories",
+        Categories: "category",
         type: "category",
         entries: [
-          { male: "Men's Fashion" },
-          { female: "Women's Fashion" },
-          { baby: "Baby's Fashion" }
-        ]
-      },
-      {
-        user: "User",
-        type: "category",
-        entries: [
-          { User: "User" },
-          { Settings: "Setting" },
-          { Logout: "Logout" }
+          {  "Men's Fashion":'products' },
+          {  "Women's Fashion":'products' },
+          { "Baby's Fashion" : 'products' }
         ]
       }
-    ]
+    ],
+    user: {}
   };
   componentDidMount() {
     const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
@@ -41,28 +35,63 @@ class PostLoginHeader extends Component {
       this.props.userAlreadySignin();
     }
   }
+  componentWillReceiveProps(newProps) {
+    if (this.props !== newProps) {
+      this.setState(
+        {
+          user: newProps.user.loggedInUser
+        },
+        () => {
+          if (Cookies.get("token")) {
+            console.log(this.state, newProps);
+            let user = {};
+            user.You = this.state.user.username;
+            (user.type = "category"),
+              (user.entries = [
+                { [this.state.user.username]: this.state.user.username },
+                { Settings: "setting" },
+                { Logout: "Logout" },
+                { "My Orders": "myOrders" },
+                { "My Wishlist": "myWishlist" },
+                { "Add Products": "addProduct" }
+              ]);
+            this.setState(
+              { headerRoutes: [...this.state.headerRoutes, user] },
+              () => {
+                history.push("/products");
+              }
+            );
+          }
+        }
+      );
+    }
+  }
+
+  handleRoutes = () => {
+    this.props.history.push("/products");
+  };
   render() {
     let header = this.state.headerRoutes.map((item, index) => {
       const keys = Object.keys(item);
 
       if (item[keys[1]] === "category") {
-        console.log(item);
         const itemEntries = item.entries.map((entry, internalIndex) => {
           const entryKeys = Object.keys(entry);
           return (
             <li className="header-li-font-padding" key={internalIndex}>
-              <a
-                href="#"
-                className="header-li-font-color header-font-size header-li-font-padding"
-              >
-                {entry[entryKeys[0]]}
+              <a href="#" className="header-li-font-color header-font-size  ">
+                {entryKeys[0]}
               </a>
             </li>
           );
         });
 
         return (
-          <div className="col-sm-1 header-font-size text-center" style={{'padding':'0%'}} key={index}>
+          <div
+            className="col-sm-1 header-font-size text-center"
+            style={{ padding: "0%" }}
+            key={index}
+          >
             <a
               href="#"
               className="dropdown-toggle header-font-color"
@@ -70,14 +99,14 @@ class PostLoginHeader extends Component {
               role="button"
               aria-expanded="false"
             >
-              {item[keys[0]]} <span className="caret" />
+              {keys[0]} <span className="caret" />
             </a>
             <li
-              className="dropdown open list-style-none  header-li-font-padding"
+              className="dropdown open list-style-none header-li-font-padding "
               key={index}
             >
               <ul
-                className="dropdown-menu dropdownhover-top "
+                className="dropdown-menu dropdownhover-top header-li-font-padding "
                 role="menu"
                 style={{ " top": "auto" }}
               >
@@ -88,9 +117,13 @@ class PostLoginHeader extends Component {
         );
       } else if (item[keys[1]] === "link") {
         return (
-          <div className="col-sm-1 header-font-size text-center" key={index} style={{'padding':'0%'}}>
+          <div
+            className="col-sm-1 header-font-size text-center"
+            key={index}
+            style={{ padding: "0%" }}
+          >
             <Link to={`/${keys[0]}`} className="header-font-color">
-              {item[keys[0]]}
+              {keys[0]}
             </Link>
           </div>
         );
@@ -100,6 +133,11 @@ class PostLoginHeader extends Component {
     return <div className="row">{header}</div>;
   }
 }
+
+PostLoginHeader.propTypes = {
+  user: PropTypes.object.isRequired,
+  userAlreadySignin: PropTypes.func.isRequired
+};
 const mapStateToProps = state => {
   return {
     user: state.loggedInUser

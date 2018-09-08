@@ -8,7 +8,7 @@ var salt = bcrypt.genSaltSync(10);
 const User = Schema({
   username:  { type: String, required: true, index: { unique: true }},
   password: { type: String, required: true },
-  products: { type: Schema.Types.ObjectId, ref: 'Product'},
+  products: [{ type: Schema.Types.ObjectId, ref: 'Product'}],
   email:{ type: String, required: true},
   mobile:{ type: String, required: true}
 });

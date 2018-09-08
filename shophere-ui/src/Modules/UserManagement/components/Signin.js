@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { Link ,Redirect} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { signin ,userAlreadySignin } from "../actions/SigninActionCreator";
 import Validator from "validator";
-
-
+import Cookies from "js-cookie";
+import history from '../../Common/history';
 class Signin extends Component {
     state = {
         data: {
@@ -43,16 +43,19 @@ class Signin extends Component {
     componentDidMount() {
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
         if(loggedInUser && Object.keys(loggedInUser).length>0){
-            this.props.userAlreadySignin();
+            this.props.history.push('/products')      
         }
     }
 
-    componentWillReceiveProps(newProps,oldProps){
-        console.log(newProps);
-        if(newProps.signinUser.loading){
-            this.transitionTo('/');            
+    componentWillReceiveProps(newProps) {
+        if (this.props !== newProps) {
+          this.setState(newProps);
+         
         }
-    }
+        if(Cookies.get('token')){
+            history.push('/products')  
+        }
+      }
 
     render() {
         const loggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));

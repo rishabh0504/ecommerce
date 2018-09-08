@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import Validator from "validator";
+import Cookies from "js-cookie";
 import { register, resetSignupState,userAlreadySignin } from "../actions/SignupActionCreator";
-
+import history from '../../Common/history';
 class Signup extends Component {
     state = {
         data: {
@@ -60,6 +61,20 @@ class Signup extends Component {
             this.props.signupUser.signupUser.successMessage !== ""
         ) {
             this.props.resetSignupState();
+        }
+       
+        if(loggedInUser && Object.keys(loggedInUser).length>0){
+           history.push('/products')      
+        }
+    }
+
+
+    componentWillReceiveProps(newProps) {
+        if (this.props !== newProps) {
+          this.setState(newProps);
+        }
+        if(Cookies.get('token')){
+          history.push('/products')  
         }
     }
 
