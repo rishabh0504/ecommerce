@@ -47,8 +47,11 @@ class Signin extends Component {
         }
     }
 
-    componentWillReceiveProps(newProps){
-        console.log('received new Props',newProps.loggedInUser);
+    componentWillReceiveProps(newProps,oldProps){
+        console.log(newProps);
+        if(newProps.signinUser.loading){
+            this.transitionTo('/');            
+        }
     }
 
     render() {

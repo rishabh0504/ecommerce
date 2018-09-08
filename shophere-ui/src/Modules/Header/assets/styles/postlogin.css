@@ -1,0 +1,30 @@
+.list-style-none{
+    list-style: none;
+}
+.header-font-size{
+    font-size:80%
+}
+.header-font-color{
+    color:white;
+}
+
+.header-li-font-color{
+    color:black;
+}
+
+.header-li-font-padding{
+    padding-left:5%;
+}
+.no-padding{
+    padding: 0%;
+}
+
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}

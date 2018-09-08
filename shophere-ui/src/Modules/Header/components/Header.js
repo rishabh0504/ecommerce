@@ -4,16 +4,38 @@ import { connect } from "react-redux";
 import Cookies from "js-cookie";
 import PreLoginHeader from "./PreLoginHeader";
 import PostLoginHeader from "./PostLoginHeader";
-
-//import { library } from "@fortawesome/fontawesome-svg-core";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faCog, faUser } from "@fortawesome/free-solid-svg-icons";
-//library.add(faCog, faUser);
 class Header extends Component {
-  componentDidMount() {}
   render() {
     let header;
     if (Cookies.get("token")) {
+      header = (
+        <div className="row">
+          <div className="col-sm-12">
+            <nav
+              style={{ paddingLeft: "2%", paddingRight: "2%" }}
+              className="navbar navbar-expand-sm bg-info navbar-dark"
+            >
+              <div className="col-sm-2">
+                <Link
+                  className="navbar-brand shophere-header"
+                  style={{ width: "50%" }}
+                  to={"/"}
+                >
+                  <img
+                    className="logo"
+                    style={{ width: "60%" }}
+                    src={require("../../../Images/logo.png")}
+                  />
+                </Link>
+              </div>
+              <div className="col-sm-10">
+                <PostLoginHeader />
+              </div>
+            </nav>
+          </div>
+        </div>
+      );
+    } else {
       header = (
         <div className="row">
           <div className="col-sm-12">
@@ -29,45 +51,18 @@ class Header extends Component {
                 >
                   <img
                     className="logo"
-                    style={{ width: "100%" }}
+                    style={{ width: "60%" }}
                     src={require("../../../Images/logo.png")}
                   />
                 </Link>
               </div>
               <div className="col-sm-9">
-                <PostLoginHeader />
+                <PreLoginHeader />
               </div>
             </nav>
           </div>
         </div>
       );
-    } else {
-      <div className="row">
-      <div className="col-sm-12">
-        <nav
-          style={{ paddingLeft: "2%", paddingRight: "2%" }}
-          className="navbar navbar-expand-sm bg-info navbar-dark"
-        >
-          <div className="col-sm-3">
-            <Link
-              className="navbar-brand shophere-header"
-              style={{ width: "50%" }}
-              to={"/"}
-            >
-              <img
-                className="logo"
-                style={{ width: "100%" }}
-                src={require("../../../Images/logo.png")}
-              />
-            </Link>
-          </div>
-          <div className="col-sm-9">
-            <PreLoginHeader />
-          </div>
-        </nav>
-      </div>
-    </div>
-
     }
     return header;
   }

@@ -20,9 +20,10 @@ export default function(state = initialState, action) {
                 signinUser: { ...state.signinUser, ...action.payload }
             };
         case SIGN_IN_SUCCESS:
+            console.log(action);
             return {
                 ...state,
-                signinUser: { ...state.signinUser,loading:action.payload}
+                signinUser: { ...state.signinUser,loading :action.payload}
             };
         case SIGN_IN_RESET:
             return {
