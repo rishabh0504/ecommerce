@@ -1,7 +1,7 @@
 .list-style-none{
     list-style: none;
 }
-.header-font-size{
+.header-font-size,.sidbar-font-size{
     font-size:80%
 }
 .header-font-color{

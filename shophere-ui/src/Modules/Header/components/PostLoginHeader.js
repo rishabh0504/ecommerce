@@ -48,12 +48,10 @@ class PostLoginHeader extends Component {
             user.You = this.state.user.username;
             (user.type = "category"),
               (user.entries = [
-                { [this.state.user.username]: this.state.user.username },
-                { Settings: "setting" },
-                { Logout: "Logout" },
-                { "My Orders": "myOrders" },
-                { "My Wishlist": "myWishlist" },
-                { "Add Products": "addProduct" }
+                { "Settings": "setting" },
+                { "Logout": "logout" },
+                { "My Orders": "orders" },
+                { "My Wishlist": "wishlist" }
               ]);
             this.setState(
               { headerRoutes: [...this.state.headerRoutes, user] },
@@ -79,9 +77,8 @@ class PostLoginHeader extends Component {
           const entryKeys = Object.keys(entry);
           return (
             <li className="header-li-font-padding" key={internalIndex}>
-              <a href="#" className="header-li-font-color header-font-size  ">
-                {entryKeys[0]}
-              </a>
+              
+              <Link  className='header-li-font-color header-font-size' to={entry[entryKeys[0]]}>{entryKeys[0]}</Link>
             </li>
           );
         });
@@ -92,15 +89,7 @@ class PostLoginHeader extends Component {
             style={{ padding: "0%" }}
             key={index}
           >
-            <a
-              href="#"
-              className="dropdown-toggle header-font-color"
-              data-toggle="dropdown"
-              role="button"
-              aria-expanded="false"
-            >
-              {keys[0]} <span className="caret" />
-            </a>
+           <Link className="dropdown-toggle header-font-color" data-toggle="dropdown" role="button" aria-expanded="false" to={item[keys[0]]} >{keys[0]} <span className="caret" /></Link>
             <li
               className="dropdown open list-style-none header-li-font-padding "
               key={index}
@@ -122,7 +111,7 @@ class PostLoginHeader extends Component {
             key={index}
             style={{ padding: "0%" }}
           >
-            <Link to={`/${keys[0]}`} className="header-font-color">
+            <Link to={item[keys[0]]} className="header-font-color active">
               {keys[0]}
             </Link>
           </div>

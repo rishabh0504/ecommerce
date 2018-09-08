@@ -7,8 +7,8 @@ body {
 	
 }
 .body{
-	min-height:550px !important;
-	margin-top: 1%;
+	min-height:500px !important;
+	margin-right: 1%;
 }
 
 .logo {
@@ -38,4 +38,43 @@ body {
 
 .row-bottom{
 	bottom:0;	
+}
+
+.form-bg{
+    background-image: url("../Images/form-bg.jpg");
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+
+.media-signup,
+.media-signin {
+    background-color: darkcyan;
+	opacity: 0.85;
+	height: 550px;
+}
+
+.media-signin{
+	
+}
+.form-color {
+    color: white;
+}
+
+.div-text-center {
+    text-align: center;
+}
+
+.media-form-body {
+    margin: auto;
+}
+
+.nav-margin{
+    margin-right:5% !important;
 }

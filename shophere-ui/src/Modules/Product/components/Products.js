@@ -1,48 +1,20 @@
 import React, { Component } from "react";
 
 import Product from "./Product";
+import AddProduct from './AddProduct';
+import { Switch, Route, Link } from "react-router-dom";
+
+import "../../Header/assets/styles/postlogin.css";
 class Products extends Component {
-	
-	 
-render() {
+  render() {
     return (
       <div className="row product-dashboard">
-        <div className="col-sm-3" />
-        <div className="col-sm-9">
-          <div className="row">
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <br />
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <div className="col-sm-3">
-              <Product className="product" />
-            </div>
-            <br />
-          </div>
+        <div className="col-sm-12">
+              <h1>Product dashboard</h1>
         </div>
       </div>
     );
   }
 }
 
- 
- export default Products;
- 
+export default Products;
