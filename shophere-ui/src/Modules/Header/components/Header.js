@@ -2,100 +2,74 @@ import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog, faUser,faSliders } from "@fortawesome/free-solid-svg-icons";
-library.add(faCog, faUser,faSliders);
+import PreLoginHeader from "./PreLoginHeader";
+import PostLoginHeader from "./PostLoginHeader";
+
+//import { library } from "@fortawesome/fontawesome-svg-core";
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faCog, faUser } from "@fortawesome/free-solid-svg-icons";
+//library.add(faCog, faUser);
 class Header extends Component {
-  state = {
-    privateContents: [
-      { User: "user", icon: "user" },
-      { Settings: "settings", icon: "cog" },
-      { Logout: "logout", icon: "cog" }
-    ],
-    publicContents: [
-      { Products: "products", icon: "cog" },
-      { SignIn: "signin", icon: "cog" }
-    ],
-    userSpecificDetails: [
-      { User: "user", icon: "user" },
-      { Settings: "settings", icon: "cog" },
-      { Logout: "logout", icon: "cog" }
-    ]
-  };
-
+  componentDidMount() {}
   render() {
-    console.log(this.props.loggedInUser);
-    let dynamicHeader;
+    let header;
     if (Cookies.get("token")) {
-      dynamicHeader = this.state.userSpecificDetails.map((item, index) => {
-        const keys = Object.keys(item);
-        return (
-          <NavLink
-            key={index}
-            className="dropdown-item"
-            style={{ background: "transparent", opacity: "0.90" }}
-            to={`/${item[Object.keys(item)[0]]}`}
-          >
-            {item[keys[0]]}{" "}
-            <span style={{ float: "right" }}>
-              &nbsp;
-              <FontAwesomeIcon icon={`${item[keys[1]]}`} />
-            </span>
-          </NavLink>
-        );
-      });
-      console.log(dynamicHeader);
-    } else {
-      dynamicHeader = this.state.publicContents.map((item, index) => {
-        return (
-          <li className="nav-item nav-margin" key={index}>
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "white" }}
-              to={`/${item[Object.keys(item)[0]]}`}
+      header = (
+        <div className="row">
+          <div className="col-sm-12">
+            <nav
+              style={{ paddingLeft: "2%", paddingRight: "2%" }}
+              className="navbar navbar-expand-sm bg-info navbar-dark"
             >
-              {Object.keys(item)[0]}
-            </NavLink>
-          </li>
-        );
-      });
-    }
-
-    return (
-      <div className="row">
-        <div className="col-sm-12">
-          <nav
-            style={{ paddingLeft: "2%", paddingRight: "2%" }}
-            className="navbar navbar-expand-sm bg-info navbar-dark"
-          >
-            <div className="col-sm-9">
-              <Link
-                className="navbar-brand shophere-header"
-                style={{ width: "50%" }}
-                to={"/"}
-              >
-                <img
-                  className="logo"
-                  style={{ width: "25%" }}
-                  src={require("../../../Images/logo.png")}
-                />
-              </Link>
-            </div>
-            <div className="col-sm-3">
-              <div className="dropdown dropleft float-right">
-                <button
-                  type="button"
-                  className="btn btn-info dropdown-toggle"
-                  data-toggle="dropdown"
-                />
-                <div className="dropdown-menu">{dynamicHeader}</div>
+              <div className="col-sm-3">
+                <Link
+                  className="navbar-brand shophere-header"
+                  style={{ width: "50%" }}
+                  to={"/"}
+                >
+                  <img
+                    className="logo"
+                    style={{ width: "100%" }}
+                    src={require("../../../Images/logo.png")}
+                  />
+                </Link>
               </div>
-            </div>
-          </nav>
+              <div className="col-sm-9">
+                <PostLoginHeader />
+              </div>
+            </nav>
+          </div>
         </div>
+      );
+    } else {
+      <div className="row">
+      <div className="col-sm-12">
+        <nav
+          style={{ paddingLeft: "2%", paddingRight: "2%" }}
+          className="navbar navbar-expand-sm bg-info navbar-dark"
+        >
+          <div className="col-sm-3">
+            <Link
+              className="navbar-brand shophere-header"
+              style={{ width: "50%" }}
+              to={"/"}
+            >
+              <img
+                className="logo"
+                style={{ width: "100%" }}
+                src={require("../../../Images/logo.png")}
+              />
+            </Link>
+          </div>
+          <div className="col-sm-9">
+            <PreLoginHeader />
+          </div>
+        </nav>
       </div>
-    );
+    </div>
+
+    }
+    return header;
   }
 }
 const mapStateToProps = state => {
