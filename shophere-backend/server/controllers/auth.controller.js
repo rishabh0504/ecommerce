@@ -53,7 +53,7 @@ module.exports.login = (req, res) => {
                         signed: true, // Indicates if the cookie should be signed
                         token
                     }
-                    res.json({status:200,user, token : options,contents:userconfig.privateContent});
+                    res.json({status:200,user, token : options});
                 }
             });
         }

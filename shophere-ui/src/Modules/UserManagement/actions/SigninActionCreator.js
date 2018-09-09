@@ -22,12 +22,11 @@ export const signin = (email, password) => dispatch => {
             }
             if (res.data.status === 200) {
                 console.log(res.data);
-                const {user : loggedInUser,token,contents} = res.data;
+                const {user : loggedInUser,token} = res.data;
                 Object.keys(token).map(key=>{
                     Cookies.set(key,token[key]);    
                 })
                 sessionStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-                sessionStorage.setItem("contents", JSON.stringify(contents));
                 dispatch({
                     type: USER_LOGIN,
                     payload: loggedInUser

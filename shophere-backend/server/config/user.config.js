@@ -8,7 +8,8 @@ module.exports={
             { "My Products": "myProduct" },
             { "My Wishlist": "wishlist" },
             { "My Orders": "orders" }
-          ]
+          ],
+          icon:'user-shield'
         }
       ] 
 }

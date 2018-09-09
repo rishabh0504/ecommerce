@@ -10,51 +10,83 @@ import Products from "../Product/components/Products";
 import ContactUs from "./ContactUS";
 import history from "../Common/history";
 import { userAlreadySignin } from "../UserManagement/actions/SigninActionCreator";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStroopwafel,
+  faShoppingCart,
+  faCaretDown,
+  faPhone,
+  faHome,
+  faSignInAlt,
+  faUserShield,
+  faMale,
+  faFemale,
+  faChild,
+  faShoppingBag,
+  faListUl,
+  faCogs,
+  faSignOutAlt
+} from "@fortawesome/free-solid-svg-icons";
+library.add(
+  faStroopwafel,
+  faShoppingCart,
+  faCaretDown,
+  faPhone,
+  faHome,
+  faSignInAlt,
+  faUserShield,
+  faMale,
+  faFemale,
+  faChild,
+  faShoppingBag,
+  faListUl,
+  faCogs,
+  faSignOutAlt
+);
 
 class Body extends Component {
   state = {
     privateContent: [],
     publicContent: [
-      { products: "Products", type: "link" },
+      { products: "Products", type: "link", icon: "shopping-cart" },
       {
         categories: "Categories",
         type: "category",
         elements: [
-          { "Men's Fashion": "mens" },
-          { "Women's Fashion": "womens" },
-          { "Baby's Fashion": "childrens" }
-        ]
+          { "Men's Fashion": "mens", icon: "male" },
+          { "Women's Fashion": "womens", icon: "female" },
+          { "Kids's Fashion": "kids", icon: "child" }
+        ],
+        icon: "caret-down"
       },
-
-      { home: "Home", type: "link" },
-      { contactus: "Contact Us", type: "link" },
-      { aboutUs: "About Us", type: "link" }
+      { contactus: "Contact Us", type: "link", icon: "phone" },
+      { aboutUs: "About Us", type: "link", icon: "home" }
     ],
-    optional: { signin: "Sign In", type: "link" },
-    user: {},
-    userSpecificContent: []
+    optional: { signin: "Sign In", type: "link", icon: "sign-in-alt" },
+    user: {}
   };
 
   componentDidMount() {
     if (Cookies.get("token")) {
       const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
-      const privateContent = JSON.parse(sessionStorage.getItem("contents"));
       if (loggedInUser && Object.keys(loggedInUser).length > 0) {
         this.props.userAlreadySignin();
         let user = {};
         user.You = loggedInUser.username.split("@")[0];
         (user.type = "category"),
           (user.elements = [
-            { "My Orders": "orders" },
-            { "My Wishlist": "wishlist" },
-            { Settings: "setting" }
+            { "My Orders": "orders", icon: "shopping-bag" },
+            { "My Wishlist": "wishlist", icon: "list-ul" },
+            { Settings: "setting", icon: "cogs" }
           ]);
+        const privateContent = this.state.privateContent;
         privateContent.push(user);
+
         this.setState({
           privateContent: privateContent,
-          optional: { signout: "Sign Out" },
-          user,
-          userSpecificContent: JSON.parse(sessionStorage.getItem("contents"))
+          optional: { signout: "Sign Out", icon: "sign-out-alt" },
+          user
         });
       }
     }
@@ -100,6 +132,9 @@ class Body extends Component {
               type="button"
             >
               {eachCategory[keys[0]]}
+              <span style={{ fontSize: "150%", float: "right" }}>
+                <FontAwesomeIcon icon={eachCategory.icon} />
+              </span>
             </Link>
           </div>
         );
@@ -114,6 +149,9 @@ class Body extends Component {
             >
               <Link to={category[keys[0]]} className="list-sub-menu">
                 {keys[0]}
+                <span style={{ fontSize: "150%", float: "right" }}>
+                  <FontAwesomeIcon icon={category.icon} />
+                </span>
               </Link>
             </li>
           );
@@ -129,6 +167,9 @@ class Body extends Component {
               type="button"
             >
               {eachCategory[keys[0]]}
+              <span style={{ fontSize: "150%", float: "right" }}>
+                <FontAwesomeIcon icon={eachCategory.icon} />
+              </span>
             </Link>
             <div id={keys[0]} className="collapse">
               {finalElement}
@@ -151,6 +192,9 @@ class Body extends Component {
                 type="button"
               >
                 {eachCategory[keys[0]]}
+                <span style={{ fontSize: "150%", float: "right" }}>
+                  <FontAwesomeIcon icon={eachCategory.icon} />
+                </span>
               </Link>
             </div>
           );
@@ -165,6 +209,9 @@ class Body extends Component {
               >
                 <Link to={category[keys[0]]} className="list-sub-menu">
                   {keys[0]}
+                  <span style={{ fontSize: "150%", float: "right" }}>
+                    <FontAwesomeIcon icon={category.icon} />
+                  </span>
                 </Link>
               </li>
             );
@@ -180,6 +227,9 @@ class Body extends Component {
                 type="button"
               >
                 {eachCategory[keys[0]]}
+                <span style={{ fontSize: "150%", float: "right" }}>
+                  <FontAwesomeIcon icon="user-shield" />
+                </span>
               </Link>
               <div id={keys[0]} className="collapse">
                 {finalElement}
@@ -199,17 +249,20 @@ class Body extends Component {
           type="button"
         >
           {this.state.optional[keys[0]]}
+          <span style={{ fontSize: "150%", float: "right" }}>
+            <FontAwesomeIcon icon={this.state.optional.icon} />
+          </span>
         </Link>
       </div>
     );
-    let userSpecificContent;
+    //let userSpecificContent;
     return (
       <div className="row body">
         <div className="col-2">
           <div className="list-group list-group-flush">
             {publicContent}
             {privateContent}
-            {userSpecificContent}
+
             {authContent}
           </div>
         </div>
