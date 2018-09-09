@@ -29,27 +29,62 @@ class Body extends Component {
       { home: "Home", type: "link" },
       { contactus: "Contact Us", type: "link" },
       { aboutUs: "About Us", type: "link" }
-     
     ],
     optional: { signin: "Sign In", type: "link" },
-    user: {}
+    user: {},
+    userSpecificContent: []
   };
 
-
   componentDidMount() {
+    if (Cookies.get("token")) {
+      const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+      const privateContent = JSON.parse(sessionStorage.getItem("contents"));
+      if (loggedInUser && Object.keys(loggedInUser).length > 0) {
+        this.props.userAlreadySignin();
+        let user = {};
+        user.You = loggedInUser.username.split("@")[0];
+        (user.type = "category"),
+          (user.elements = [
+            { "My Orders": "orders" },
+            { "My Wishlist": "wishlist" },
+            { Settings: "setting" }
+          ]);
+        privateContent.push(user);
+        this.setState({
+          privateContent: privateContent,
+          optional: { signout: "Sign Out" },
+          user,
+          userSpecificContent: JSON.parse(sessionStorage.getItem("contents"))
+        });
+      }
+    }
+  }
+  componentWillReceiveProps(newProps) {
+    console.log(newProps.user);
+    /* if(this.props !==newProps){
     if(Cookies.get("token")){
       const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+      const privateContent = JSON.parse(sessionStorage.getItem("contents"));
       if (
         loggedInUser &&
         Object.keys(loggedInUser).length > 0)
       {
         this.props.userAlreadySignin();
-        this.setState({ privateContent: this.props.contents.privateContent,optional:{signout :'Sign Out'}});
+        let user = {};
+        user.You = loggedInUser.username.split("@")[0];
+        user.type = "category",
+        user.elements = [
+            { 'Settings': "setting" },
+            { 'Logout': "logout" },
+            { "My Orders": "orders" },
+            { "My Wishlist": "wishlist" },
+            { "Sign Out": "logout" }
+        ];
+        privateContent.push(user);
+        this.setState({ privateContent: privateContent,optional:{signout :'Sign Out'},user});
       }
     }
-  }
-  componentWillReceiveProps(newProps) {
-   // this.checkIfUserAlreadyLoggedIn();
+   }*/
   }
 
   render() {
@@ -103,9 +138,8 @@ class Body extends Component {
       }
     });
 
-    let privateContent;
-    if (Cookies.get("token")) {
-      privateContent = this.state.privateContent.map((eachCategory, index) => {
+    let privateContent = this.state.privateContent.map(
+      (eachCategory, index) => {
         if (eachCategory.type === "link") {
           const keys = Object.keys(eachCategory);
           return (
@@ -153,8 +187,9 @@ class Body extends Component {
             </div>
           );
         }
-      });
-    }
+      }
+    );
+
     const keys = Object.keys(this.state.optional);
     let authContent = (
       <div>
@@ -167,13 +202,15 @@ class Body extends Component {
         </Link>
       </div>
     );
+    let userSpecificContent;
     return (
       <div className="row body">
         <div className="col-2">
           <div className="list-group list-group-flush">
             {publicContent}
-            {authContent}
             {privateContent}
+            {userSpecificContent}
+            {authContent}
           </div>
         </div>
         <div className="col-10">

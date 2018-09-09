@@ -1,6 +1,7 @@
 var User = require('../models/user.model');
 var jwt = require('jsonwebtoken');
 const config = require('../config/config');
+const userconfig = require('../config/user.config');
 
 module.exports.signup = (req, res) => {
 
@@ -52,8 +53,7 @@ module.exports.login = (req, res) => {
                         signed: true, // Indicates if the cookie should be signed
                         token
                     }
-                  
-                    res.json({status:200,user, token : options});
+                    res.json({status:200,user, token : options,contents:userconfig.privateContent});
                 }
             });
         }

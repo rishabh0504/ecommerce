@@ -72,14 +72,20 @@ class Signup extends Component {
     }
   }
 
-  componentWillReceiveProps(newProps) {
-    if (this.props !== newProps) {
-      this.setState(newProps);
-    }
-    if (Cookies.get("token")) {
-      history.push("/products");
+  componentDidMount() {
+    const loggedInUser = JSON.parse(sessionStorage.getItem("loggedInUser"));
+    if (loggedInUser && Object.keys(loggedInUser).length > 0) {
+      this.props.history.push("/products");
     }
   }
+
+  componentWillReceiveProps(newProps) {
+    if (this.props !== newProps && Cookies.get("token") ) {
+      console.log('reciived props',newProps.signinUser);
+      this.props.history.push("/products");
+    }
+  }
+
 
   render() {
     const { data, errors } = this.state;
