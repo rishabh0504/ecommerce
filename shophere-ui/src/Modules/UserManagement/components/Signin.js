@@ -14,7 +14,8 @@ class Signin extends Component {
       password: ""
     },
     loading: false,
-    errors: {}
+    errors: {},
+    loggedIn : false
   };
 
   inputHandler = event => {
@@ -48,11 +49,9 @@ class Signin extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props !== newProps) {
-      this.setState(newProps);
-    }
-    if (Cookies.get("token")) {
-      history.push("/products");
+    if (this.props !== newProps && Cookies.get("token") ) {
+      console.log('reciived props',newProps.signinUser);
+      this.props.history.push("/products");
     }
   }
 

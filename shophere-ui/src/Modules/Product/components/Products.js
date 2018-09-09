@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
-import Product from "./Product";
-import AddProduct from './AddProduct';
-import { Switch, Route, Link } from "react-router-dom";
+
 
 import "../../Header/assets/styles/postlogin.css";
 class Products extends Component {

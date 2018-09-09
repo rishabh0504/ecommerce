@@ -42,7 +42,8 @@ body {
 
 .form-bg{
     background-image: url("../Images/form-bg.jpg");
-    background-size: cover;
+	background-size: cover;
+	background-repeat:none;
 }
 
 body {
@@ -77,4 +78,20 @@ body {
 
 .nav-margin{
     margin-right:5% !important;
+}
+
+.list-style-none{
+    list-style: none;
+}
+.list-menu{
+
+}
+.list-sub-menu{
+	padding-left:10%
+}
+.sub-menu-color{
+	background-color: #436f70;
+}
+.sub-menu-color a{
+	color: white;
 }
